@@ -6,7 +6,7 @@ Squarespace Template Helper
 
 The Squarespace Template Helper is a simple front end development workflow and toolset to help you write organized, modular CSS and JavaScript for use with Squarespace templates **without developer mode**.
 
-Too many designers and developers are customizing Squarespace websites without keeping quality and workmanship in check. Often times, CSS code is an unorganized mess and JavaScript is heavy, bloated and buggy. This workflow aims to solve that. Stick to this workflow and you'll have organized, DRY (don't repeat yourself), prefixed CSS code. You'll also learn to code well-documented, clean JavaScript code that's modular.
+Too many designers and developers are customizing Squarespace websites without keeping quality, page load speeds and workmanship in check. Often times, CSS code is an unorganized mess and JavaScript is heavy, bloated and buggy. This workflow aims to solve that. Stick to this workflow and you'll have organized, DRY (don't repeat yourself), prefixed CSS code. You'll also learn to code well-documented, clean JavaScript code that's modular.
 
 ### Features
 
@@ -85,13 +85,13 @@ This project uses a post-build task that prefixes all of your code with the Auto
 
 ### JavaScript
 
-This project uses an object literal module system that's bundled with [Webpack](https://webpack.github.io/). This system functions very similar to our modular Sass system mentioned above. The key component here is our `webpack.config.js` config file. This project uses the Webpack CLI, so the config file will show you what's going on. Our JavaScript entry point is the `js/src/app.js` file. All of your custom JavaScript should be separated into modules that relates to one specific use in your Squarespace website. The `app.js` should be configured to pull in all of your modules. I tried to leave comments in the project in order to help you build upon the example.
+This project uses an object literal module system that's bundled with [Webpack](https://webpack.github.io/). This system functions very similar to our modular Sass system mentioned above. The key component here is our [webpack.config.js](webpack.config.js) config file. This project uses the Webpack CLI, so the config file will show you what's going on. Our JavaScript entry point is the [js/src/app.js](js/src/app.js) file. All of your custom JavaScript should be separated into modules that relates to one specific use in your Squarespace website. The [app.js](app.js) should be configured to pull in all of your modules. I tried to leave comments in the project in order to help you build upon the example.
 
 #### Using your custom JavaScript in Squarespace without Developer mode
 
-Webpack will compile all of your JavaScript into a single file, `sqs_template/scripts/app.js`. You should be able to upload this JavaScript file directly into Squarespace's file storage, then use Squarespace Code Injection to reference the file.
+Webpack will compile all of your JavaScript into a single file, *sqs_template/scripts/app.js*. You should be able to upload this JavaScript file directly into Squarespace's file storage, then use Squarespace Code Injection to reference the file.
 
-* Step 1: Upload `app.js` to Squarespace File Storage
+* Step 1: Upload `sqs_template/scripts/app.js` to Squarespace File Storage
 * Step 2: Add `<script src="/s/app.js"></script>` to Code Injection > Footer
 
 That's all you need to do.
