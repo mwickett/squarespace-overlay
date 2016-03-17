@@ -6,7 +6,7 @@ Squarespace Template Helper
 
 The Squarespace Template Helper is a simple front end development workflow and toolset to help you write organized, modular CSS and JavaScript for use with Squarespace templates **without developer mode**.
 
-Too many designers and developers are customizing Squarespace websites without keeping quality and workmanship in check. Often times, CSS code is an unorganized mess and JavaScript is heavy, bloated and buggy. This workflow aims to solve that. Stick to this workflow and you'll have organized, DRY (don't repeat yourself), prefixed CSS code. You'll also learn to code well-documented, clean JavaScript code that's modular. Hey, you might even learn ES6 because of our ESlint configuration.
+Too many designers and developers are customizing Squarespace websites without keeping quality and workmanship in check. Often times, CSS code is an unorganized mess and JavaScript is heavy, bloated and buggy. This workflow aims to solve that. Stick to this workflow and you'll have organized, DRY (don't repeat yourself), prefixed CSS code. You'll also learn to code well-documented, clean JavaScript code that's modular.
 
 ### Features
 
@@ -64,18 +64,18 @@ npm start
 
 ### CSS
 
-This project uses Sass, which is very similar to LESS. It really makes no difference though because the end result we're going to be adding to Squarespace's Custom CSS Editor is going to be compiled CSS. You could customize this workflow to use LESS instead.
+This project uses Sass, which is very similar to LESS. It really makes no difference though because the end result is that we're going to be adding it to Squarespace's Custom CSS Editor, or linking directly to the asset. You could customize this workflow to use LESS instead.
 
-Head over to the `sass` folder and explore how everything is setup. Don't be overwhelmed at the amount of files and folders. If you organize your custom CSS like this you'll have a very maintainable, modular project. I've tried to keep it as organized as possible. Here's a quick overview:
+Head over to the [sass](/sass) folder and explore how everything is setup. Don't be overwhelmed at the amount of files and folders. If you organize your custom CSS like this you'll have a very maintainable, modular project. I've tried to keep it as organized as possible. Here's a quick overview:
 
-* `sass/blocks` - This folder contains one CSS file per Squarespace block. For example, if you're making customizations to a Squarespace summary block, store the CSS in a file in this folder.
-* `sass/collections` - This folder contains one CSS file per Squarespace collection type. For example, if you're making customizations to a Squarespace blog collection, store the CSS in a file in this folder.
-* `sass/config` - This should store your project variables and mixins used in all of your Sass files.
-* `sass/core` - Core CSS files are generally items that you're going to use site-wide, such as type, grids, icons, etc.
-* `sass/modules` - I like to call "modules" things that are "sections" of the website. For example, a header or footer could technically be called a module. Or maybe I'm creating a custom Google Map that's used in multiple places in my site. These are modules, in my mind.
-* `sass/sqs` - These are global Squarespace customizations, such as for the announcement bar, Squarespace shopping cart, or anything else.
-* `sass/state` - State normally contains CSS related to hovers, taps, or UI state. Also, I normally put "modifiers" in here.
-* `screen.scss` - This is your CSS entry point file. This is how you create a modular Sass system. Head over to this file and give it a look. It simply @imports everything in the order you specify. Sass compiles your CSS file according to the order specified.
+* [sass/blocks](/sass/blocks) - This folder contains one CSS file per Squarespace block. For example, if you're making customizations to a Squarespace summary block, store the CSS in a file in this folder.
+* [sass/collections](/sass/collections) - This folder contains one CSS file per Squarespace collection type. For example, if you're making customizations to a Squarespace blog collection, store the CSS in a file in this folder.
+* [sass/config](/sass/config) - This should store your project variables and mixins used in all of your Sass files.
+* [sass/core](/sass/core) - Core CSS files are generally items that you're going to use site-wide, such as type, grids, icons, etc.
+* [sass/modules](/sass/modules) - I like to call "modules" things that are "sections" of the website. For example, a header or footer could technically be called a module. Or maybe I'm creating a custom Google Map that's used in multiple places in my site. These are modules, in my mind.
+* [sass/sqs](/sass/sqs) - These are global Squarespace customizations, such as for the announcement bar, Squarespace shopping cart, or anything else.
+* [sass/state](/sass/state) - State normally contains CSS related to hovers, taps, or UI state. Also, I normally put "modifiers" in here.
+* [screen.scss](/screen.scss) - This is your CSS entry point file. This is how you create a modular Sass system. Head over to this file and give it a look. It simply @imports everything in the order you specify. Sass compiles your CSS file according to the order specified.
 
 Remember, you do not have to use everything exactly how I set it up. Feel free to customize it. The point of this CSS system is maintainability. If my client needs a design update to Squarespace video blocks, or I have a bug in my grid system, I know exactly where to go to edit my CSS.
 
