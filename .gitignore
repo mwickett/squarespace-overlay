@@ -4,7 +4,6 @@
 
 
 
-
 ################################################
 # Dependencies
 #
@@ -14,7 +13,6 @@
 
 node_modules
 bower_components
-
 
 
 
@@ -31,7 +29,6 @@ lib-cov
 *.out
 *.pid
 npm-debug.log
-
 
 
 

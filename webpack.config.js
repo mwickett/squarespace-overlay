@@ -24,7 +24,10 @@ module.exports = {
             },
             {
                 test: /js\/src\/.*\.js$/,
-                exclude: /node_modules|jquery|hobo/,
+                exclude: [
+                    /node_modules/,
+                    /js\/lib/
+                ],
                 loader: "babel",
                 query: {
                     // https://github.com/babel/babel-loader#options
