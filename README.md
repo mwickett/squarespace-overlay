@@ -55,16 +55,15 @@ If this was successful, you should now have a new folder `js/lib/jquery/dist` wh
 
 ## Working
 
-Now that you have everything, it's time to work. This project currently uses a simple approach to running tasks. Right now there's a NPM task that watches your CSS and JavaScript files and automatically compiles them to a storage area in this project, `sqs_template`.
+Now that you have everything, it's time to work. This project currently uses a simple approach to running tasks. Right now there's a NPM task that watches your CSS and JavaScript files and automatically compiles them to a storage area in this project, `sqs_template`. Start up the watch task:
 
 ```
-# Start up the watch task.
 npm start
 ```
 
 ### CSS
 
-This project uses Sass, which is very similar to LESS. It really makes no difference though because the end result is that we're going to be adding it to Squarespace's Custom CSS Editor, or linking directly to the asset. You could customize this workflow to use LESS instead.
+This project uses [Sass](http://sass-lang.com/), which is very similar to [LESS](http://lesscss.org). It really makes no difference though because the end result is that we're going to be adding it to Squarespace's Custom CSS Editor via copy & paste, or linking directly to the asset. You could customize this workflow to use LESS instead.
 
 Head over to the [sass](/sass) folder and explore how everything is setup. Don't be overwhelmed at the amount of files and folders. If you organize your custom CSS like this you'll have a very maintainable, modular project. I've tried to keep it as organized as possible. Here's a quick overview:
 
@@ -75,7 +74,7 @@ Head over to the [sass](/sass) folder and explore how everything is setup. Don't
 * [sass/modules](/sass/modules) - I like to call "modules" things that are "sections" of the website. For example, a header or footer could technically be called a module. Or maybe I'm creating a custom Google Map that's used in multiple places in my site. These are modules, in my mind.
 * [sass/sqs](/sass/sqs) - These are global Squarespace customizations, such as for the announcement bar, Squarespace shopping cart, or anything else.
 * [sass/state](/sass/state) - State normally contains CSS related to hovers, taps, or UI state. Also, I normally put "modifiers" in here.
-* [screen.scss](/screen.scss) - This is your CSS entry point file. This is how you create a modular Sass system. Head over to this file and give it a look. It simply @imports everything in the order you specify. Sass compiles your CSS file according to the order specified.
+* [screen.scss](/sass/screen.scss) - This is your CSS entry point file. This is how you create a modular Sass system. Head over to this file and give it a look. It simply @imports everything in the order you specify. Sass compiles your CSS file according to the order specified.
 
 Remember, you do not have to use everything exactly how I set it up. Feel free to customize it. The point of this CSS system is maintainability. If my client needs a design update to Squarespace video blocks, or I have a bug in my grid system, I know exactly where to go to edit my CSS.
 
