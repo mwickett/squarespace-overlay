@@ -45,13 +45,46 @@ npm install
 
 You should now have all your dependencies installed into the `node_modules` folder.
 
-This project includes a custom build of jQuery to remove unnecessary jQuery methods that hardly anyone uses anymore. I've created an npm task that downloads jQuery. Run that.
+This project includes a custom build of jQuery to remove unnecessary jQuery methods that hardly anyone uses anymore. I've created an npm task that downloads jQuery and does a custom build. Run that:
 
 ```
 npm run jquery
 ```
 
 If this was successful, you should now have a new folder `js/lib/jquery/dist` which contains the custom build of jQuery.
+
+## Apps and Tools
+
+People always ask me what my tools of choice are. Here are my recommendations for working with this repo.
+
+### Text Editors
+
+Use what you want. SublimeText and Atom have great ecosystems. SublimeText is lightning fast, but a paid application. Atom is open source, but not quite as good as SublimeText in my opinion.
+
+* [SublimeText](https://squarefront.com/tools/sublimetext)
+* [Atom](https://squarefront.com/tools/atom)
+
+#### Plugins
+
+Both SublimeText and Atom have an incredible ecosystem of plugins. You can install plugins via SublimeText 3 Package Control, or Atom's Plugin Installer. Here are a few plugins you must try out:
+
+* **SublimeText ESLint support:** SublimeLinter and SublimeLinter-contrib-eslint
+* **Atom ESLint support:** linter and linter-eslint
+* **SublimeText Documentation Writing:** DocBlockr
+* **Atom Documentation Writing:** DocBlockr
+
+### Command Line
+
+Built-in command line tools work great. I lean towards iTerm on Mac.
+
+* [iTerm](https://squarefront.com/tools/iterm)
+
+### Browser Tools
+
+I love Google Chrome. Here are my favorite extensions:
+
+* [Squarespace Utility](https://squarefront.com/tools/squarespace-utility) - My own Squarespace extension. Shameless plug.
+* [JSONview](https://squarefront.com/tools/jsonview) - Improves readability of raw JSON files in the browser.
 
 ## Working
 
