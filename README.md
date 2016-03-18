@@ -138,6 +138,24 @@ For now, I'm not using Webpack's minification. So when your code is functioning 
 
 Simply repeat the Squarespace installation steps above, but reference `app.min.js` instead. This will drop your JavaScript file size considerably.
 
+#### Documentation
+
+This project uses [JSDoc](http://usejsdoc.org/) syntax and includes dependencies to quickly generate a bootstrapped API documentation website that you can run on a local server. To create documentation simply run the following task:
+
+```
+npm run doc:js
+```
+
+If it worked correctly you should have a new documentation directory at `js/docs`. If you want to run it on a simple Python server:
+
+```
+cd js/docs
+
+python -m SimpleHTTPServer
+```
+
+Now head over you can hit [localhost:8000](localhost:8000) to see the docs in your browser.
+
 ### Future Releases
 
 I'm testing an all-Webpack system where all of the build tasks are done using Webpack and some of Webpack's awesome plugins. Feel free to comment or submit feedback/bugs by creating an [Issue](/issues).
