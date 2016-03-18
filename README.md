@@ -20,7 +20,7 @@ This workflow is meant to help you create and organize custom CSS and JavaScript
 
 ### Requirements
 
-This project assumes you have Git and Node.js installed. Git and Node.js are required because we use NPM for downloading project dependencies and running tasks.
+This project is cross-platform but assumes you have Git and Node.js installed. Git and Node.js are required because we use them both for downloading project dependencies and running tasks.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/)
@@ -69,8 +69,8 @@ Use what you want. SublimeText and Atom have great ecosystems. SublimeText is li
 Both SublimeText and Atom have an incredible ecosystem of plugins. You can install plugins via SublimeText 3 Package Control, or Atom's Plugin Installer. Here are a few plugins you must try out:
 
 * **SublimeText ESLint support:** SublimeLinter and SublimeLinter-contrib-eslint
-* **Atom ESLint support:** linter and linter-eslint
 * **SublimeText Documentation Writing:** DocBlockr
+* **Atom ESLint support:** linter and linter-eslint
 * **Atom Documentation Writing:** DocBlockr
 
 ### Command Line
