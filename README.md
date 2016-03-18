@@ -154,7 +154,7 @@ cd js/docs
 python -m SimpleHTTPServer
 ```
 
-Now head over you can hit [localhost:8000](localhost:8000) to see the docs in your browser.
+Now head over you can hit [localhost:8000](/localhost:8000) to see the docs in your browser.
 
 ### Future Releases
 
