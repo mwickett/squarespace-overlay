@@ -2,7 +2,7 @@
   "title": "Squarespace Template Helper",
   "name": "squarespace-template-helper",
   "description": "A simple workflow for customizing CSS and JavaScript on Squarespace templates without Developer mode.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^6.3.1",
