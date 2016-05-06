@@ -13,11 +13,9 @@
         "modules": true
     },
     "globals": {
-        // External dependencies
         "DISQUS": true,
         "Flickity": true,
         "ga":true,
-        "Localize": true,
         "Modernizr": true,
         "google": true,
 
