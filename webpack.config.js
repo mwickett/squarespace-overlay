@@ -1,12 +1,15 @@
+var webpack = require("webpack");
 module.exports = {
-
     resolve: {
         root: __dirname
     },
 
 
     entry: {
-        app: "./js/src/app.js"
+        app: [
+            // Source JavaScript entry point.
+            "./js/src/app.js"
+        ]
     },
 
 
@@ -19,15 +22,12 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /js\/lib\/jquery\/dist.*\.js$/,
+                test: /js\/lib\/hobo\/dist.*\.js$/,
                 loader: "expose?$!expose?jQuery"
             },
             {
                 test: /js\/src\/.*\.js$/,
-                exclude: [
-                    /node_modules/,
-                    /js\/lib/
-                ],
+                exclude: /node_modules/,
                 loader: "babel",
                 query: {
                     // https://github.com/babel/babel-loader#options
@@ -42,5 +42,13 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+
+
+    plugins: [
+        new webpack.ProvidePlugin({
+            Promise: "exports?global.Promise!es6-promise",
+            fetch: "imports?this=>global!exports?global.fetch!whatwg-fetch"
+        })
+    ]
 };
