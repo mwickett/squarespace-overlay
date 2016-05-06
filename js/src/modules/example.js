@@ -4,8 +4,10 @@
 // by importing them into the module.
 
 
-// Here we're importing jQuery into this module so we can use various jQuery utilities.
-import $ from "js/lib/jquery/dist/jquery";
+import * as core from "../core";
+// Here's jQuery in case you need it. If you're just doing DOM manipulation, you
+// probably won't need it.
+// import $ from "js/lib/jquery/dist/jquery";
 
 
 let $_jsElements = null;
@@ -89,7 +91,7 @@ const example = {
      *
      */
     getElements () {
-        $_jsElements = $( ".js-element" );
+        $_jsElements = core.dom.body.find( ".js-element" );
 
         return ( $_jsElements.length );
     }
@@ -109,7 +111,9 @@ const execElement = function ( $el ) {
     // Grab some data from $el.
     const elementData = $el.data();
 
-    // Just another placeholder.
+    // Misc:
+    console.log( `Look ma, there's an element!` );
+    console.log( $el );
     console.log( elementData );
 };
 
@@ -124,15 +128,15 @@ const execElement = function ( $el ) {
  */
 const initElement = function ( ) {
     const $notLoaded = $_jsElements.not( ".is-initialized" );
-    let $el = null;
+    let $element = null;
     let i = $notLoaded.length;
 
     for ( i; i--; ) {
-        $el = $_jsElements.eq( i );
+        $element = $_jsElements.eq( i );
 
-        $el.addClass( "is-initialized" );
+        $element.addClass( "is-initialized" );
 
-        execElement( $el );
+        execElement( $element );
     }
 };
 

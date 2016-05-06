@@ -1,5 +1,5 @@
 import $ from "js/lib/jquery/dist/jquery";
-
+import * as core from "./core";
 import example from "./modules/example";
 
 
@@ -13,6 +13,7 @@ import example from "./modules/example";
 class App {
     constructor () {
         this.$ = $;
+        this.core = core;
         this.example = example;
 
         this.initModules();
