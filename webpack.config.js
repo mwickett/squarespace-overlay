@@ -1,4 +1,4 @@
-var webpack = require("webpack");
+var webpack = require( "webpack" );
 module.exports = {
     resolve: {
         root: __dirname
@@ -22,7 +22,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /js\/lib\/hobo\/dist.*\.js$/,
+                test: /js\/lib\/jquery\/dist.*\.js$/,
                 loader: "expose?$!expose?jQuery"
             },
             {
