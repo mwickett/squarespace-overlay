@@ -2,17 +2,27 @@ Squarespace Template Helper
 =======
 > A simple workflow for customizing CSS and JavaScript on Squarespace templates without Developer mode.
 
+
+
 ## Overview
 
 The Squarespace Template Helper is a simple front end development workflow and toolset to help you write organized, modular CSS and JavaScript for use with Squarespace templates **without developer mode**.
 
 Too many designers and developers are customizing Squarespace websites without keeping quality, page load speeds and workmanship in check. Often times, CSS code is an unorganized mess and JavaScript is heavy, bloated and buggy. This workflow aims to solve that. Stick to this workflow and you'll have organized, DRY (don't repeat yourself), prefixed CSS code. You'll also learn to code well-documented, clean JavaScript code that's modular.
 
+### How It Works
+
+The idea here is simple, write all of your JavaScript and Sass, compile it, and upload it to Squarespace as an asset. A system like this is typically best used with an AJAX-like routing system so you only initialize your app once on initial page load and all page-to-page navigation is handled via AJAX. However, that normally requires using Squarespace Developer mode for a greater level of control over the markup. There are a number of people who'd rather use advanced JavaScript and not turn on Developer mode. This project aims to help those people.
+
 ### Features
 
-* Write CSS in Sass with PostCSS Autoprefixing. Sass is similar to LESS.
 * Write modular JavaScript that's compiled to a single, minified JavaScript file.
+* Precisely configured ESLint rules to force good ES6 writing habits.
 * JavaScript best practices: Bundled with Webpack, transpiled with Babel, linted with ESlint.
+* [ES6 Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) polyfills added via Webpack.
+* Write CSS in Sass with PostCSS Autoprefixing. Sass is similar to LESS.
+
+
 
 ## Getting Started
 
@@ -40,7 +50,7 @@ git clone git@github.com:Squarefront/squarespace-template-helper.git yourproject
 Install all project dependencies.
 
 ```
-npm install
+npm i
 ```
 
 You should now have all your dependencies installed into the `node_modules` folder.
@@ -51,7 +61,7 @@ This project includes a custom build of jQuery to remove unnecessary jQuery meth
 npm run jquery
 ```
 
-If this was successful, you should now have a new folder `js/lib/jquery/dist` which contains the custom build of jQuery.
+If this was successful, you should now have a new folder `js/lib/jquery/dist` which contains the custom build of jQuery. *Note: you don't have to touch jQuery after this custom build. jQuery is pulled into your source JavaScript using imports.*
 
 ## Apps and Tools
 
@@ -156,6 +166,18 @@ python -m SimpleHTTPServer
 
 Now head over you can hit [localhost:8000](http://localhost:8000) to see the docs in your browser.
 
-### Future Releases
+
+
+## Resources, Videos & Tutorials
+If you need any help understanding or working with this project, I've been creating a lot of community resources.
+
+* [Squarefront](https://squarefront.com) - My large Squarespace education and community resource.
+* [Squarefront Live](https://squarefront.com/live) - Weekly live coding your questions on [Youtube](http://youtube.com/squarefront/live).
+* [Talk Squarespace Live Chat](https://squarefront.com/chat), powered by Slack.
+    * Post your questions anywhere, or PM me: @jasonbarone.
+* [Talk Squarespace Events](https://squarefront.com/events), organized with Meetup.
+    * I host an unofficial Squarespace [Meetup group](http://meetup.com/talksquarespace) and I do regular events in New York City.
+
+## Future Releases
 
 I'm testing an all-Webpack system where all of the build tasks are done using Webpack and some of Webpack's awesome plugins. Feel free to comment or submit feedback/bugs by creating an [Issue](/issues).
