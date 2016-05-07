@@ -6,6 +6,6 @@
 # Ignore your build JavsScript.
 ################################################
 
-js/lib/*.js
-js/lib/**/*.js
-sqs_template/**/*.js
+*
+!js/src/*.js
+!js/src/**/*.js
