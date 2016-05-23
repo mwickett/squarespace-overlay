@@ -72,8 +72,8 @@ dev = {
 
             // Expose
             {
-                test: /(hobo|hobo.build)\.js$/,
-                loader: "expose?hobo"
+                test: /lib\/jquery\/dist.*\.js$/,
+                loader: "expose?$!expose?jQuery"
             },
 
             // Sass
