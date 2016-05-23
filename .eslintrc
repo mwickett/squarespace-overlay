@@ -1,23 +1,29 @@
-// http://eslint.org/docs/rules/
-// 0 - turn the rule off
-// 1 - turn the rule on as a warning (doesn't affect exit code)
-// 2 - turn the rule on as an error (exit code will be 1)
 {
     "extends": "eslint:recommended",
     "env": {
-        "amd": true,
         "es6": true,
         "browser": true
     },
     "ecmaFeatures": {
         "modules": true
     },
+    "parserOptions": {
+        "sourceType": "module"
+    },
     "globals": {
         "DISQUS": true,
         "Flickity": true,
+        "Draggable": true,
+        "Isotope": true,
         "ga":true,
+        "hljs":true,
+        "jQuery":true,
+        "muut":true,
+        "StripeCheckout":true,
+        "Localize": true,
         "Modernizr": true,
         "google": true,
+        "require":true,
 
         // Squarespace specific
         "Y": true,
@@ -59,10 +65,11 @@
         "eqeqeq": 2,
         "guard-for-in": 2,
         "no-alert": 2,
+        "no-debugger": 0,
         "no-caller": 2,
         "no-div-regex": 2,
         "no-else-return": 2,
-        "no-empty-label": 2,
+        "no-labels": 2,
         "no-eq-null": 2,
         "no-eval": 2,
         "no-extend-native": [
@@ -75,7 +82,6 @@
         "no-implied-eval": 2,
         "no-invalid-this": 1,
         "no-iterator": 2,
-        "no-labels": 2,
         "no-lone-blocks": 2,
         "no-loop-func": 2,
         "no-multi-spaces": 2,
@@ -139,12 +145,8 @@
         "no-shadow": 2,
         "no-undef-init": 2,
         "no-undef": 2,
-        "no-undefined": 2,
-        "no-unused-vars": [
-            2, {
-                "varsIgnorePattern" : "flickity"
-            }
-        ],
+        "no-undefined": 1,
+        "no-unused-vars": 2,
         "no-use-before-define": 0, // Switch to 2 ?
 
 
@@ -279,7 +281,7 @@
             "consistent-as-needed"
         ],
         "quotes": [
-            2,
+            1,
             "double"
         ],
         "semi-spacing": [
@@ -294,9 +296,12 @@
             "always"
         ],
         "sort-vars": 0,
-        "space-after-keywords": [
+        "keyword-spacing": [
             2,
-            "always"
+           {
+                "before": true,
+                "after": true
+            }
         ],
         "space-before-blocks": [
             2,
@@ -313,7 +318,6 @@
         "space-infix-ops": [
             2
         ],
-        "space-return-throw-case": 2,
         "space-unary-ops": [
             2,
             {
@@ -359,7 +363,7 @@
         "prefer-arrow-callback": 1,
         "prefer-const": 2,
         "prefer-spread": 2,
-        "prefer-reflect": 1,
+        "prefer-reflect": 0,
         "prefer-template": 2,
         "require-yield": 2
     }
