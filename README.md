@@ -6,21 +6,24 @@ Squarespace Template Helper
 
 ## Overview
 
-The Squarespace Template Helper is a simple front end development workflow and toolset to help you write organized, modular CSS and JavaScript for use with Squarespace templates **without developer mode**.
+The Squarespace Template Helper is a structured front end development workflow and toolset to help you write organized, modular CSS and JavaScript for use with Squarespace templates **without developer mode**.
 
 Too many designers and developers are customizing Squarespace websites without keeping quality, page load speeds and workmanship in check. Often times, CSS code is an unorganized mess and JavaScript is heavy, bloated and buggy. This workflow aims to solve that. Stick to this workflow and you'll have organized, DRY (don't repeat yourself), prefixed CSS code. You'll also learn to code well-documented, clean JavaScript code that's modular.
 
+
 ### How It Works
 
-The idea here is simple, write all of your JavaScript and Sass, compile it, and upload it to Squarespace as an asset. A system like this is typically best used with an AJAX-like routing system so you only initialize your app once on initial page load and all page-to-page navigation is handled via AJAX. However, that normally requires using Squarespace Developer mode for a greater level of control over the markup. There are a number of people who'd rather use advanced JavaScript and not turn on Developer mode. This project aims to help those people.
+The idea here is simple, write all of your JavaScript and Sass, compile it, and upload JavaScript to Squarespace as a file storage asset, and load your compiled Sass into Squarespace's Custom CSS area. A system like this is typically best used with an AJAX-like routing system so you only initialize your app once on initial page load and all page-to-page navigation is handled via AJAX. However, that normally requires using Squarespace Developer mode for a greater level of control over the markup. There are a number of people who'd rather use advanced JavaScript and not turn on Developer mode. This project aims to help those people.
+
 
 ### Features
 
-* Write modular JavaScript that's compiled to a single, minified JavaScript file.
-* Precisely configured ESLint rules to force good ES6 writing habits.
-* JavaScript best practices: Bundled with Webpack, transpiled with Babel, linted with ESlint.
-* [ES6 Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) polyfills added via Webpack.
-* Write CSS in Sass with PostCSS Autoprefixing. Sass is similar to LESS.
+* Modular JavaScript structure that compiles to a single, minified file.
+* Precisely configured ESLint rules to force learnign ES6 code habits.
+* JavaScript best practices: Compiled/bundled with Webpack, transpiled with Babel, linted with ESlint, documented with JSDoc syntax.
+* Includes Polyfills for [ES6 Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). Loaded via Webpack plugins.
+* Modular Sass structure that compiles to a single CSS file.
+* PostCSS Autoprefixer prefixes your CSS.
 
 
 
@@ -55,13 +58,11 @@ npm i
 
 You should now have all your dependencies installed into the `node_modules` folder.
 
-This project includes a custom build of jQuery to remove unnecessary jQuery methods that hardly anyone uses anymore. I've created an npm task that downloads jQuery and does a custom build. Run that:
+This project includes a custom build of jQuery to remove unnecessary jQuery methods that hardly anyone uses anymore. I've created an `postinstall` task that runs automatically on `npm i`.
 
-```
-npm run jquery
-```
+If installation was successful, you should now your `node_modules` folder, as well as a  `/lib/jquery` which contains the custom build of jQuery. *Note: you don't have to touch jQuery after this custom build. jQuery is pulled into your source JavaScript using imports.*
 
-If this was successful, you should now have a new folder `js/lib/jquery/dist` which contains the custom build of jQuery. *Note: you don't have to touch jQuery after this custom build. jQuery is pulled into your source JavaScript using imports.*
+
 
 ## Apps and Tools
 
@@ -98,7 +99,7 @@ I love Google Chrome. Here are my favorite extensions:
 
 ## Working
 
-Now that you have everything, it's time to work. This project currently uses a simple approach to running tasks. Right now there's a NPM task that watches your CSS and JavaScript files and automatically compiles them to a storage area in this project, `sqs_template`. Start up the watch task:
+Now that you have everything, it's time to work. This project currently uses a a Webpack build system. No Gulp or Grunt. Webpack watches your CSS and JavaScript source files and continusouly compiles them to their output location in `template`. To get started, all you have to do is run Webpack using the start task:
 
 ```
 npm start
@@ -117,7 +118,7 @@ Head over to the [sass](/sass) folder and explore how everything is setup. Don't
 * [sass/modules](/sass/modules) - I like to call "modules" things that are "sections" of the website. For example, a header or footer could technically be called a module. Or maybe I'm creating a custom Google Map that's used in multiple places in my site. These are modules, in my mind.
 * [sass/sqs](/sass/sqs) - These are global Squarespace customizations, such as for the announcement bar, Squarespace shopping cart, or anything else.
 * [sass/state](/sass/state) - State normally contains CSS related to hovers, taps, or UI state. Also, I normally put "modifiers" in here.
-* [screen.scss](/sass/screen.scss) - This is your CSS entry point file. This is how you create a modular Sass system. Head over to this file and give it a look. It simply @imports everything in the order you specify. Sass compiles your CSS file according to the order specified.
+* [app.scss](/sass/app.scss) - This is your CSS entry point file. This is how you create a modular Sass system. Head over to this file and give it a look. It simply @imports everything in the order you specify. Sass compiles your CSS file according to the order specified.
 
 Remember, you do not have to use everything exactly how I set it up. Feel free to customize it. The point of this CSS system is maintainability. If my client needs a design update to Squarespace video blocks, or I have a bug in my grid system, I know exactly where to go to edit my CSS.
 
@@ -127,26 +128,24 @@ This project uses a post-build task that prefixes all of your code with the Auto
 
 ### JavaScript
 
-This project uses an object literal module system that's bundled with [Webpack](https://webpack.github.io/). This system functions very similar to our modular Sass system mentioned above. The key component here is our [webpack.config.js](webpack.config.js) config file. This project uses the Webpack CLI, so the config file will show you what's going on. Our JavaScript entry point is the [js/src/app.js](js/src/app.js) file. All of your custom JavaScript should be separated into modules that relates to one specific use in your Squarespace website. The [app.js](app.js) should be configured to pull in all of your modules. I tried to leave comments in the project in order to help you build upon the example.
+This project uses an object literal module system that's bundled with [Webpack](https://webpack.github.io/). This system functions very similar to our modular Sass system mentioned above. The key component here is our [webpack.config.js](webpack.config.js) config file. This project uses the Webpack CLI, so the config file will show you what's going on. Our JavaScript entry point is the [source/js/app.js](source/js/app.js) file. All of your custom JavaScript should be separated into modules that relates to one specific use in your Squarespace website. The [app.js](app.js) should be configured to pull in all of your modules. I tried to leave comments in the project in order to help you build upon the example.
 
 #### Using your custom JavaScript in Squarespace without Developer mode
 
-Webpack will compile all of your JavaScript into a single file, *sqs_template/scripts/app.js*. You should be able to upload this JavaScript file directly into Squarespace's file storage, then use Squarespace Code Injection to reference the file.
+Webpack will compile all of your JavaScript into two single files, *template/scripts/app.js* and *template/scripts/app.min.js*. You should be able to upload this JavaScript file directly into Squarespace's file storage, then use Squarespace Code Injection to reference the file.
 
-* Step 1: Upload `sqs_template/scripts/app.js` to Squarespace File Storage
-* Step 2: Add `<script src="/s/app.js"></script>` to Code Injection > Footer
+* Step 1: Upload `template/scripts/app.min.js` to Squarespace File Storage
+* Step 2: Add `<script src="/s/app.min.js"></script>` to Code Injection > Footer
 
-That's all you need to do.
+That's all you need to do!
 
 #### Debugging JavaScript
 
-Debugging is a little harder to do on a non-Dev mode Squarespace template, so at the very least you should be able to use Browser DevTools for basic debugging. I'll work on this. :)
+During Developer and testing, you'll want to upload the `app.js` instead, as its easier to debug. Debugging in a live website is a little harder to do on a non-Dev mode Squarespace template, so at the very least you should be able to use Browser DevTools for basic debugging.
 
 #### Minifying your JavaScript for production
 
-For now, I'm not using Webpack's minification. So when your code is functioning properly and you're done debugging, simply run `npm run min:js` which will take your `sqs_template/scripts/app.js` and output a minified and mangled version to `sqs_template/scripts/app.min.js`.
-
-Simply repeat the Squarespace installation steps above, but reference `app.min.js` instead. This will drop your JavaScript file size considerably.
+As mentioned above, Webpack will build your dev and production files. During development, use your `app.js`. When you're finished testing, upload your `app.min.js` and use that as your production file, which will be considerably smaller.
 
 #### Documentation
 
