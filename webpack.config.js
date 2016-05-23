@@ -5,8 +5,12 @@
  *
  */
 var webpack = require( "webpack" );
+var fs = require( "fs");
 var path = require( "path" );
 var autoprefixer = require( "autoprefixer" );
+var cssnano = require( "cssnano" );
+var WebpackOnBuildPlugin = require( "on-build-webpack" );
+
 var sassLoaders = [
     "file-loader?name=../css/[name].css",
     "postcss-loader",
@@ -98,7 +102,23 @@ dev = {
         includePaths: [
             path.resolve( __dirname, "source/sass" )
         ]
-    }
+    },
+
+    plugins: [
+        new WebpackOnBuildPlugin(function ( stats ) {
+            fs.readFile( "./template/assets/css/app.css", "utf8", function ( error, css ) {
+                const opts = {
+                    discardComments: {
+                        removeAll: true
+                    }
+                };
+
+                cssnano.process(css, opts).then(function (result) {
+                    fs.writeFile( "./template/assets/css/app.min.css", result);
+                });
+            });
+        })
+    ]
 };
 
 
