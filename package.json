@@ -2,7 +2,7 @@
   "title": "Squarespace Template Helper",
   "name": "squarespace-template-helper",
   "description": "A structured workflow for customizing JavaScript and CSS on Squarespace templates without Developer mode.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^6.3.1",
@@ -30,17 +30,9 @@
     "webpack": "^1.12.12",
     "whatwg-fetch": "^1.0.0"
   },
-  "config": {
-    "scss_file": "./sass/screen.scss",
-    "css_file": "./sqs_template/styles/screen.css",
-    "js_file": "./sqs_template/scripts/app.js",
-    "js_file_min": "./sqs_template/scripts/app.min.js",
-    "js_map": "./sqs_template/scripts/app.js.map",
-    "js_map_min": "./sqs_template/scripts/app.min.js.map"
-  },
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./source/js/",
-    "jsdoc": "jsdoc source/js/ -r -R README.md -P package.json -t node_modules/jsdoc-oblivion/template -c node_modules/jsdoc-oblivion/template/jsdoc.conf.json -d jsdocs",
+    "docs": "jsdoc source/js/ -r -R README.md -P package.json -t node_modules/jsdoc-oblivion/template -c node_modules/jsdoc-oblivion/template/jsdoc.conf.json -d docs",
     "watch": "./node_modules/.bin/webpack -d --watch --colors",
     "start": "npm run watch",
     "postinstall": "git clone https://github.com/jquery/jquery.git lib/jquery && cd lib/jquery && npm install && grunt custom:-deprecated,-effects,-effects/Tween,-effects/animatedSelector,-css,-css/addGetHookIf,-css/adjustCSS,-css/curCSS,-css/hiddenVisibleSelectors,-css/showHide,-css/support,-css/var/cssExpand,-css/var/getStyles,-css/var/isHidden,-css/var/rmargin,-css/var/rnumnonpx,-css/var/swap,-dimensions,-offset,-wrap,-exports/amd,-event/alias,-core/ready"

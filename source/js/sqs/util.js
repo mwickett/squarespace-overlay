@@ -1,7 +1,7 @@
 /**
  *
  * @public
- * @namespace util
+ * @module util
  * @memberof sqs
  * @description Houses app-wide Squarespace-specific utility methods.
  *

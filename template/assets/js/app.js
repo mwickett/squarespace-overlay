@@ -59,11 +59,11 @@
 	
 	var core = _interopRequireWildcard(_core);
 	
-	var _sqs = __webpack_require__(/*! ./sqs */ 6);
+	var _sqs = __webpack_require__(/*! ./sqs */ 8);
 	
 	var sqs = _interopRequireWildcard(_sqs);
 	
-	var _example = __webpack_require__(/*! ./modules/example */ 8);
+	var _example = __webpack_require__(/*! ./modules/example */ 10);
 	
 	var _example2 = _interopRequireDefault(_example);
 	
@@ -81,7 +81,7 @@
 	 * This is removed from your final JavaScript build.
 	 *
 	 */
-	__webpack_require__(/*! ../sass/app.scss */ 9);
+	__webpack_require__(/*! ../sass/app.scss */ 11);
 	
 	/**
 	 *
@@ -263,7 +263,7 @@
 	/**
 	 *
 	 * @public
-	 * @namespace util
+	 * @module util
 	 * @memberof core
 	 * @description Houses app-wide utility methods.
 	 *
@@ -386,6 +386,26 @@
 
 /***/ },
 /* 5 */
+/*!***********************************!*\
+  !*** ./lib/jquery/dist/jquery.js ***!
+  \***********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(/*! -!./~/expose-loader?jQuery!./lib/jquery/dist/jquery.js */ 6);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 6 */
+/*!************************************************************!*\
+  !*** ./~/expose-loader?jQuery!./lib/jquery/dist/jquery.js ***!
+  \************************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(/*! -!./lib/jquery/dist/jquery.js */ 7);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 7 */
 /*!***********************************!*\
   !*** ./lib/jquery/dist/jquery.js ***!
   \***********************************/
@@ -8392,7 +8412,7 @@
 
 
 /***/ },
-/* 6 */
+/* 8 */
 /*!********************************!*\
   !*** ./source/js/sqs/index.js ***!
   \********************************/
@@ -8405,7 +8425,7 @@
 	});
 	exports.util = undefined;
 	
-	var _util = __webpack_require__(/*! ./util */ 7);
+	var _util = __webpack_require__(/*! ./util */ 9);
 	
 	var _util2 = _interopRequireDefault(_util);
 	
@@ -8420,7 +8440,7 @@
 	                                */
 
 /***/ },
-/* 7 */
+/* 9 */
 /*!*******************************!*\
   !*** ./source/js/sqs/util.js ***!
   \*******************************/
@@ -8434,7 +8454,7 @@
 	/**
 	 *
 	 * @public
-	 * @namespace util
+	 * @module util
 	 * @memberof sqs
 	 * @description Houses app-wide Squarespace-specific utility methods.
 	 *
@@ -8485,7 +8505,7 @@
 	exports.sqsLifecycle = sqsLifecycle;
 
 /***/ },
-/* 8 */
+/* 10 */
 /*!**************************************!*\
   !*** ./source/js/modules/example.js ***!
   \**************************************/
@@ -8646,7 +8666,7 @@
 	exports.default = example;
 
 /***/ },
-/* 9 */
+/* 11 */
 /*!******************************!*\
   !*** ./source/sass/app.scss ***!
   \******************************/

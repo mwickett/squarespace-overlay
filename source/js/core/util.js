@@ -1,7 +1,7 @@
 /**
  *
  * @public
- * @namespace util
+ * @module util
  * @memberof core
  * @description Houses app-wide utility methods.
  *
