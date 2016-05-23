@@ -104,16 +104,16 @@ const example = {
  * @method execVideo
  * @memberof example
  * @description Handles execution of something.
- * @param {Object} $el The element.
+ * @param {jQuery} $element The element.
  *
  */
-const execElement = function ( $el ) {
+const execElement = function ( $element ) {
     // Grab some data from $el.
-    const elementData = $el.data();
+    const elementData = $element.data();
 
     // Misc:
-    console.log( `Look ma, there's an element!` );
-    console.log( $el );
+    console.log( `Look ma, there's an element, and its data attributes!` );
+    console.log( $element );
     console.log( elementData );
 };
 

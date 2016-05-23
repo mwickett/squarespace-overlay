@@ -1,54 +1,144 @@
+/**
+ *
+ * Webpack Config
+ * Handles configuration of the Webpack CLI.
+ *
+ */
 var webpack = require( "webpack" );
-module.exports = {
+var path = require( "path" );
+var autoprefixer = require( "autoprefixer" );
+var sassLoaders = [
+    "file-loader?name=../css/[name].css",
+    "postcss-loader",
+    "sass-loader?sourceMap"
+];
+
+
+/**
+ *
+ * dev
+ * Webpack config for development.
+ * Compiles JavaScript & Sass.
+ *
+ */
+dev = {
+    devtool: "source-map",
+
+
     resolve: {
-        root: __dirname
-    },
-
-
-    entry: {
-        app: [
-            // Source JavaScript entry point.
-            "./js/src/app.js"
+        root: path.resolve( __dirname ),
+        packageMains: [
+            "webpack",
+            "web",
+            "main"
         ]
     },
 
 
+    entry: {
+        "app": path.resolve( __dirname, "source/js/app.js" )
+    },
+
+
     output: {
-        path: "./sqs_template/scripts/",
-        filename: "app.js"
+        path: path.resolve( __dirname, "template/assets/js" ),
+        filename: "[name].js"
     },
 
 
     module: {
+        preLoaders: [
+            // ESLint
+            {
+                test: /source\/js\/.*\.js$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader"
+            }
+        ],
+
+
         loaders: [
+            // Babel
             {
-                test: /js\/lib\/jquery\/dist.*\.js$/,
-                loader: "expose?$!expose?jQuery"
-            },
-            {
-                test: /js\/src\/.*\.js$/,
+                test: /source\/js\/.*\.js$/,
                 exclude: /node_modules/,
                 loader: "babel",
                 query: {
-                    // https://github.com/babel/babel-loader#options
-                    // cacheDirectory: true,
                     presets: [
-                        "es2015",
-                        "stage-0"
-                    ],
-                    plugins: [
-                        "add-module-exports"
+                        "es2015"
                     ]
                 }
+            },
+
+            // Expose
+            {
+                test: /(hobo|hobo.build)\.js$/,
+                loader: "expose?hobo"
+            },
+
+            // Sass
+            {
+                test: /\.scss$/,
+                loader: sassLoaders.join( "!" )
             }
         ]
     },
 
 
+    postcss: [
+        autoprefixer({
+            browsers: [
+                "last 2 versions"
+            ]
+        })
+    ],
+
+
+    sassLoader: {
+        includePaths: [
+            path.resolve( __dirname, "source/sass" )
+        ]
+    }
+};
+
+
+/**
+ *
+ * buildjs
+ * Webpack config for JavaScript build.
+ * Waits for initial output of JavaScript and runs minification.
+ *
+ */
+buildjs = {
+    resolve: {
+        root: path.resolve( __dirname ),
+    },
+
+
+    entry: {
+        "app": path.resolve( __dirname, "template/assets/js/app.js" )
+    },
+
+
+    output: {
+        path: path.resolve( __dirname, "template/assets/js" ),
+        filename: "[name].min.js"
+    },
+
+
     plugins: [
-        new webpack.ProvidePlugin({
-            Promise: "exports?global.Promise!es6-promise",
-            fetch: "imports?this=>global!exports?global.fetch!whatwg-fetch"
+        new webpack.optimize.UglifyJsPlugin({
+            comments: false,
+            compress: {
+                warnings: false
+            },
+            mangle: true
         })
     ]
 };
+
+
+module.exports = [
+    dev,
+    buildjs
+];

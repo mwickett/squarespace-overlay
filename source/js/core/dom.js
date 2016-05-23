@@ -1,11 +1,11 @@
-import $ from "js/lib/jquery/dist/jquery";
+import $ from "lib/jquery/dist/jquery";
 
 
 /**
  *
  * @public
- * @module dom
- * @description Holds high-level cached Nodes.
+ * @module core.dom
+ * @description Houses app-wide high-level cached DOM nodes.
  *
  */
 const dom = {

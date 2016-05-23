@@ -1,5 +1,17 @@
-import $ from "js/lib/jquery/dist/jquery";
+/**
+ *
+ * Require for Webpack File Loader.
+ * File Loader is a way to compile your Sass with Webpack.
+ * This is simply a link to your Sass entry point.
+ * This is removed from your final JavaScript build.
+ *
+ */
+require( "../sass/app.scss" );
+
+
+
 import * as core from "./core";
+import * as sqs from "./sqs";
 import example from "./modules/example";
 
 
@@ -12,8 +24,8 @@ import example from "./modules/example";
  */
 class App {
     constructor () {
-        this.$ = $;
         this.core = core;
+        this.sqs = sqs;
         this.example = example;
 
         this.initModules();
@@ -32,15 +44,17 @@ class App {
     initModules () {
         this.example.init( this );
     }
-
-
 }
 
 
 
 /******************************************************************************
- * Bootstrap
+ * Expose
 *******************************************************************************/
-window.onload = function () {
-    window.app = new App();
-};
+window.app = new App();
+
+
+/******************************************************************************
+ * Export
+*******************************************************************************/
+export default window.app;
