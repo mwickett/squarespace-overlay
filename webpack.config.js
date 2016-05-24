@@ -117,6 +117,10 @@ dev = {
                     fs.writeFile( "./template/assets/css/app.min.css", result);
                 });
             });
+        }),
+        new webpack.ProvidePlugin({
+            Promise: "exports?global.Promise!es6-promise",
+            fetch: "imports?this=>global!exports?global.fetch!whatwg-fetch"
         })
     ]
 };
