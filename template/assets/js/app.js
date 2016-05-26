@@ -1986,7 +1986,7 @@
 	 * Released under the MIT license
 	 * https://jquery.org/license
 	 *
-	 * Date: 2016-05-23T02:30Z
+	 * Date: 2016-05-26T02:33Z
 	 */
 	( function( global, factory ) {
 	
