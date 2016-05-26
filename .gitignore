@@ -5,14 +5,19 @@
 
 
 ################################################
-# Dependencies
+# Dependencies & Folders
 #
 # Modules or components you are using for
 # this project.
 ################################################
 
-node_modules
 bower_components
+node_modules
+lib
+
+design
+docs
+test
 
 
 
@@ -50,9 +55,4 @@ npm-debug.log
 .notes
 .tmp
 sftp-config.json
-.sqs_template/sftp-config.json
-
-design
-docs
-lib
-test
+template/sftp-config.json
