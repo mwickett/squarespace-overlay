@@ -1,0 +1,59 @@
+/******************************************************************************
+ * overlay
+ *
+ * Custom CSS styles that relate to the header area.
+ * Note: Not all Squarespace templates have the same classes/IDs.
+*******************************************************************************/
+
+.custom-overlay-container {
+  transition: opacity ease 700ms;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 4999;
+  background-color: rgba(0, 0, 0, 0.7);
+  &.is-hidden {
+      transition: opacity ease 500ms;
+      opacity: 0;
+  }
+}
+
+.custom-overlay {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.custom-overlay-inner {
+  max-width: 42em;
+  padding: 50px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.custom-overlay-close {
+  background-color: #fff;
+  padding: 0.75em;
+  margin-top: 1em;
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+}
+
+// <div class="custom-overlay-container is-hidden js-overlay" data-url="overlay">
+//  <div class="custom-overlay">
+//   <div class="custom-overlay-inner">
+//   </div>
+//   <span class="custom-overlay-close">X</span>
+// </div>
+// </div>

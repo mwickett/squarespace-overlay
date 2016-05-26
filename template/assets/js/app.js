@@ -63,9 +63,9 @@
 	
 	var sqs = _interopRequireWildcard(_sqs);
 	
-	var _example = __webpack_require__(/*! ./modules/example */ 16);
+	var _overlay = __webpack_require__(/*! ./modules/overlay */ 16);
 	
-	var _example2 = _interopRequireDefault(_example);
+	var _overlay2 = _interopRequireDefault(_overlay);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -97,7 +97,7 @@
 	
 	    this.core = core;
 	    this.sqs = sqs;
-	    this.example = _example2.default;
+	    this.overlay = _overlay2.default;
 	
 	    this.initModules();
 	  }
@@ -116,7 +116,7 @@
 	  _createClass(App, [{
 	    key: "initModules",
 	    value: function initModules() {
-	      this.example.init(this);
+	      this.overlay.init(this);
 	    }
 	  }]);
 	
@@ -706,7 +706,7 @@
   \*****************************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var require;var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(process, global, module) {/*!
+	var __WEBPACK_AMD_DEFINE_RESULT__;var require;/* WEBPACK VAR INJECTION */(function(process, global, module) {/*!
 	 * @overview es6-promise - a tiny implementation of Promises/A+.
 	 * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
 	 * @license   Licensed under MIT license
@@ -1669,13 +1669,13 @@
 	
 	/*** EXPORTS FROM exports-loader ***/
 	module.exports = global.Promise;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! ./~/process/browser.js */ 5), (function() { return this; }()), __webpack_require__(/*! ./../../webpack/buildin/module.js */ 6)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(/*! (webpack)/~/node-libs-browser/~/process/browser.js */ 5), (function() { return this; }()), __webpack_require__(/*! ./../../webpack/buildin/module.js */ 6)(module)))
 
 /***/ },
 /* 5 */
-/*!******************************!*\
-  !*** ./~/process/browser.js ***!
-  \******************************/
+/*!**********************************************************!*\
+  !*** (webpack)/~/node-libs-browser/~/process/browser.js ***!
+  \**********************************************************/
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -1986,7 +1986,7 @@
 	 * Released under the MIT license
 	 * https://jquery.org/license
 	 *
-	 * Date: 2016-05-26T02:33Z
+	 * Date: 2016-05-26T16:00Z
 	 */
 	( function( global, factory ) {
 	
@@ -10066,12 +10066,14 @@
 	/******************************************************************************
 	 * Export
 	*******************************************************************************/
-	exports.sqsLifecycle = sqsLifecycle;
+	exports.default = {
+	  sqsLifecycle: sqsLifecycle
+	};
 
 /***/ },
 /* 16 */
 /*!**************************************!*\
-  !*** ./source/js/modules/example.js ***!
+  !*** ./source/js/modules/overlay.js ***!
   \**************************************/
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10085,6 +10087,10 @@
 	
 	var core = _interopRequireWildcard(_core);
 	
+	var _sqs = __webpack_require__(/*! ../sqs */ 14);
+	
+	var sqs = _interopRequireWildcard(_sqs);
+	
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 	
 	// Here's jQuery in case you need it. If you're just doing DOM manipulation, you
@@ -10096,21 +10102,16 @@
 	/**
 	 *
 	 * @public
-	 * @module example
+	 * @module overlay
 	 * @description A nice description of this module.
 	 *
 	 */
-	// This is a module using an object literal pattern.
-	// It's an easy way to organize your custom JavaScript into modules with methods.
-	// Since this system uses Webpack, you can reuse other modules and dependencies
-	// by importing them into the module.
-	
-	var example = {
+	var overlay = {
 	    /**
 	     *
 	     * @public
 	     * @method init
-	     * @memberof example
+	     * @memberof overlay
 	     * @description Method runs once when window loads.
 	     *
 	     */
@@ -10118,9 +10119,9 @@
 	    init: function init() {
 	        if (this.isActive()) {
 	            // Use this method to separate your
+	            console.log("overlay module initialized");
 	            initElement();
 	        }
-	        // console.log( "example module initialized" );
 	    },
 	
 	
@@ -10128,7 +10129,7 @@
 	     *
 	     * @public
 	     * @method isActive
-	     * @memberof example
+	     * @memberof overlay
 	     * @description Method informs of active status.
 	     * @returns {boolean}
 	     *
@@ -10142,7 +10143,7 @@
 	     *
 	     * @public
 	     * @method unload
-	     * @memberof example
+	     * @memberof overlay
 	     * @description Method performs unloading actions for this module.
 	     *
 	     */
@@ -10158,7 +10159,7 @@
 	     *
 	     * @public
 	     * @method teardown
-	     * @memberof example
+	     * @memberof overlay
 	     * @description Method performs cleanup after this module. Removes events, null vars etc...
 	     *
 	     */
@@ -10171,13 +10172,13 @@
 	     *
 	     * @public
 	     * @method getElements
-	     * @memberof example
+	     * @memberof overlay
 	     * @description Method queries DOM for this modules node.
 	     * @returns {number}
 	     *
 	     */
 	    getElements: function getElements() {
-	        $_jsElements = core.dom.body.find(".js-element");
+	        $_jsElements = core.dom.body.find(".js-overlay");
 	
 	        return $_jsElements.length;
 	    }
@@ -10187,26 +10188,56 @@
 	 *
 	 * @private
 	 * @method execVideo
-	 * @memberof example
-	 * @description Handles execution of something.
-	 * @param {jQuery} $element The element.
+	 * @memberof overlay
+	 * @description Handles close button.
+	 * @param {Object} $el is the overlay node.
 	 *
 	 */
-	var execElement = function execElement($element) {
-	    // Grab some data from $el.
-	    var elementData = $element.data();
+	var handleClose = function handleClose($el) {
+	    var overlayClose = $el.find(".custom-overlay-close");
 	
-	    // Misc:
-	    console.log("Look ma, there's an element, and its data attributes!");
-	    console.log($element);
-	    console.log(elementData);
+	    overlayClose[0].addEventListener("click", function () {
+	        $el.addClass("is-hidden");
+	        // setTimeout( () => {
+	        //     $el.remove();
+	        // }, 10000);
+	    });
+	};
+	
+	/**
+	 *
+	 * @private
+	 * @method execVideo
+	 * @memberof overlay
+	 * @description Handles parsing overlay content and attaching to new target node.
+	 * @param {Object} $el the overlay node.
+	 *
+	 */
+	var execElement = function execElement($el) {
+	    var overlayInner = $el.find(".custom-overlay-inner");
+	
+	    var overlayData = $el.data();
+	    var url = overlayData.url;
+	
+	    var mainContent = null;
+	
+	    core.api.fetch(url, { format: "json" }).then(function (response) {
+	        return response.json();
+	    }).then(function (json) {
+	        mainContent = json.mainContent;
+	    }).then(function () {
+	        overlayInner.append(mainContent);
+	        sqs.util.sqsLifecycle.init();
+	        handleClose($el);
+	        $el.addClass("is-loaded").removeClass("is-hidden");
+	    });
 	};
 	
 	/**
 	 *
 	 * @private
 	 * @method initElements
-	 * @memberof example
+	 * @memberof overlay
 	 * @description This module would do something with your elements.
 	 *
 	 */
@@ -10227,7 +10258,7 @@
 	/******************************************************************************
 	 * Export
 	*******************************************************************************/
-	exports.default = example;
+	exports.default = overlay;
 
 /***/ },
 /* 17 */
