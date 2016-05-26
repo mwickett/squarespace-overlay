@@ -1,3 +1,15 @@
+Squarespace Overlay
+=======
+
+This is a module to create a site owner AND visitor friendly pop-up overlay to do things like present important information, or ask for email signups using Squarespace "native" content.
+
+## To do
+
+1. Close pop up after newsletter form submit
+2. Improve styling
+3. Cookie to remember view
+4. Trigger after certain amount of engagment (ie. don't be shitty and ask right away)
+
 Squarespace Template Helper
 =======
 > A structured workflow for customizing CSS and JavaScript on Squarespace templates without Developer mode.
