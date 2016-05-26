@@ -21,8 +21,9 @@ var sassLoaders = [
 /**
  *
  * dev
- * Webpack config for development.
+ * Webpack config for development build.
  * Compiles JavaScript & Sass.
+ * Minifies CSS automatically after build.
  *
  */
 dev = {
@@ -110,7 +111,8 @@ dev = {
                 const opts = {
                     discardComments: {
                         removeAll: true
-                    }
+                    },
+                    safe: true
                 };
 
                 cssnano.process(css, opts).then(function (result) {
@@ -128,12 +130,12 @@ dev = {
 
 /**
  *
- * buildjs
- * Webpack config for JavaScript build.
+ * prod
+ * Webpack config for JavaScript production build.
  * Waits for initial output of JavaScript and runs minification.
  *
  */
-buildjs = {
+prod = {
     resolve: {
         root: path.resolve( __dirname ),
     },
@@ -164,5 +166,5 @@ buildjs = {
 
 module.exports = [
     dev,
-    buildjs
+    prod
 ];
