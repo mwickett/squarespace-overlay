@@ -52,7 +52,7 @@ npm-debug.log
 sftp-config.json
 .sqs_template/sftp-config.json
 
-/design
-/docs
-/lib
-/test
+design
+docs
+lib
+test
