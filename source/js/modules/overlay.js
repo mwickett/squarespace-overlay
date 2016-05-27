@@ -113,7 +113,7 @@ const handleSubmit = function ( $el ) {
             if ( !formSubmitted.hasClass( "hidden" ) ) {
                 $el.addClass( "is-hidden" );
             }
-        }, 3200);
+        }, 3000);
     });
 
 };
