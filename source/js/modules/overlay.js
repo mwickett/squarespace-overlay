@@ -97,7 +97,36 @@ const overlay = {
 /**
  *
  * @private
- * @method execVideo
+ * @method handleSubmit
+ * @memberof overlay
+ * @description Handles closing the overlay after newsletter button submit
+ * @param {Object} $el is the overlay node.
+ *
+ */
+const handleSubmit = function ( $el ) {
+    const overlaySubmit = $el.find( ".newsletter-form-button" );
+    const formSubmitted = $el.find( ".form-submission-text" );
+
+    console.log(formSubmitted);
+
+    overlaySubmit[ 0 ].addEventListener( "click", () => {
+        setTimeout( () => {
+            //Can't fiture out why this isn't working
+            if (formSubmitted.hasClass( "hidden" ) === "false" ) {
+                console.log("ok, hiding");
+                $el.addClass( "is-hidden" );
+            } else {
+                console.log("Can't hide it yet!");
+            }
+        }, 3000);
+    });
+
+};
+
+/**
+ *
+ * @private
+ * @method handleClose
  * @memberof overlay
  * @description Handles close button.
  * @param {Object} $el is the overlay node.
@@ -118,7 +147,7 @@ const handleClose = function ( $el ) {
 /**
  *
  * @private
- * @method execVideo
+ * @method execElement
  * @memberof overlay
  * @description Handles parsing overlay content and attaching to new target node.
  * @param {Object} $el the overlay node.
@@ -141,6 +170,7 @@ const execElement = function ( $el ) {
         }).then( () => {
             overlayInner.append( mainContent );
             sqs.util.sqsLifecycle.init();
+            handleSubmit( $el );
             handleClose( $el );
             $el.addClass( "is-loaded" ).removeClass( "is-hidden" );
         });
