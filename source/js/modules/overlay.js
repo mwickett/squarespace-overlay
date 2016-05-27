@@ -111,10 +111,9 @@ const handleSubmit = function ( $el ) {
             const formSubmitted = $el.find( ".form-submission-text" );
 
             if ( !formSubmitted.hasClass( "hidden" ) ) {
-                console.log( "ok, hiding" );
                 $el.addClass( "is-hidden" );
             }
-        }, 3000);
+        }, 3200);
     });
 
 };
