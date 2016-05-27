@@ -6,6 +6,7 @@ This is a module to create a site owner AND visitor friendly pop-up overlay to d
 ## To do
 
 1. Close pop up after newsletter form submit
+2. Watch for clicks outside the overlay and trigger close
 2. Improve styling
 3. Cookie to remember view
 4. Trigger after certain amount of engagment (ie. don't be shitty and ask right away)

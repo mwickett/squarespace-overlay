@@ -2,7 +2,7 @@ import * as core from "../core";
 import * as sqs from "../sqs";
 // Here's jQuery in case you need it. If you're just doing DOM manipulation, you
 // probably won't need it.
-// import $ from "js/lib/jquery/dist/jquery";
+//import $ from "../../../lib/jquery/dist/jquery";
 
 
 let $_jsElements = null;
@@ -26,7 +26,6 @@ const overlay = {
      */
     init () {
         if ( this.isActive() ) {
-            // Use this method to separate your
             console.log( "overlay module initialized" );
             initElement();
         }
@@ -105,18 +104,15 @@ const overlay = {
  */
 const handleSubmit = function ( $el ) {
     const overlaySubmit = $el.find( ".newsletter-form-button" );
-    const formSubmitted = $el.find( ".form-submission-text" );
 
-    console.log(formSubmitted);
 
     overlaySubmit[ 0 ].addEventListener( "click", () => {
         setTimeout( () => {
-            //Can't fiture out why this isn't working
-            if (formSubmitted.hasClass( "hidden" ) === "false" ) {
-                console.log("ok, hiding");
+            const formSubmitted = $el.find( ".form-submission-text" );
+
+            if ( !formSubmitted.hasClass( "hidden" ) ) {
+                console.log( "ok, hiding" );
                 $el.addClass( "is-hidden" );
-            } else {
-                console.log("Can't hide it yet!");
             }
         }, 3000);
     });

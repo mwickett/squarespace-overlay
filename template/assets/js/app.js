@@ -10095,7 +10095,7 @@
 	
 	// Here's jQuery in case you need it. If you're just doing DOM manipulation, you
 	// probably won't need it.
-	// import $ from "js/lib/jquery/dist/jquery";
+	//import $ from "../../../lib/jquery/dist/jquery";
 	
 	var $_jsElements = null;
 	
@@ -10118,7 +10118,6 @@
 	
 	    init: function init() {
 	        if (this.isActive()) {
-	            // Use this method to separate your
 	            console.log("overlay module initialized");
 	            initElement();
 	        }
@@ -10195,18 +10194,14 @@
 	 */
 	var handleSubmit = function handleSubmit($el) {
 	    var overlaySubmit = $el.find(".newsletter-form-button");
-	    var formSubmitted = $el.find(".form-submission-text");
-	
-	    console.log(formSubmitted);
 	
 	    overlaySubmit[0].addEventListener("click", function () {
 	        setTimeout(function () {
-	            //Can't fiture out why this isn't working
-	            if (formSubmitted.hasClass("hidden") === "false") {
+	            var formSubmitted = $el.find(".form-submission-text");
+	
+	            if (!formSubmitted.hasClass("hidden")) {
 	                console.log("ok, hiding");
 	                $el.addClass("is-hidden");
-	            } else {
-	                console.log("Can't hide it yet!");
 	            }
 	        }, 3000);
 	    });

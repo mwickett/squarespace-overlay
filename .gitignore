@@ -35,7 +35,14 @@ lib-cov
 *.pid
 npm-debug.log
 
+################################################
+# Generated files
+#
+# Project specific files that are generated
+# like compiled js and css and .map files
+################################################
 
+template
 
 ################################################
 # Miscellaneous
